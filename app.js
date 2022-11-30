@@ -8,26 +8,36 @@ Vue.createApp({
 		};
 	},
 	methods: {
-		addExpense(num) {
+		addExpense() {
 			if (this.enteredValue != "") {
 				num = parseInt(this.enteredValue);
-				this.listed.push("Money Out => " + num);
-				this.total.push(num);
-				this.totalamount -= num;
-				this.enteredValue = "";
+				if (Number.isNaN(num) != true) {
+					this.listed.push("Money Out => " + num);
+					this.total.push(num);
+					this.totalamount -= num;
+					this.enteredValue = "";
+				} else {
+					window.alert("Please key in a NUMBER!");
+					this.enteredValue = "";
+				}
 			} else {
-				window.alert("Please key in a value!");
+				window.alert("Please key in a NUMBER!");
 			}
 		},
-		addMoneyIn(num) {
+		addMoneyIn() {
 			if (this.enteredValue != "") {
 				num = parseInt(this.enteredValue);
-				this.listed.push("Money In => " + num);
-				this.total.push(num);
-				this.totalamount += num;
-				this.enteredValue = "";
+				if (Number.isNaN(num) != true) {
+					this.listed.push("Money In => " + num);
+					this.total.push(num);
+					this.totalamount += num;
+					this.enteredValue = "";
+				} else {
+					window.alert("Please key in a NUMBER!");
+					this.enteredValue = "";
+				}
 			} else {
-				window.alert("Please key in a value!");
+				window.alert("Please key in a NUMBER!");
 			}
 		},
 		deleteEntry() {
